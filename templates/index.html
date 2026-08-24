@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -17,42 +18,79 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f2f4f7;
+            font-family: "Segoe UI", Arial, sans-serif;
 
             min-height: 100vh;
 
             display: flex;
             justify-content: center;
             align-items: center;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+
+            padding: 20px;
         }
 
         .container {
-            width: 450px;
+            width: 100%;
+            max-width: 480px;
 
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
 
-            padding: 30px;
+            padding: 40px;
 
-            border-radius: 12px;
+            border-radius: 20px;
 
-            box-shadow: 0 5px 20px
-                rgba(0, 0, 0, 0.15);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.25);
+
+            backdrop-filter: blur(10px);
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 25px;
-            color: #333;
+
+            font-size: 32px;
+
+            margin-bottom: 30px;
+
+            color: #222;
+
+            font-weight: 700;
+        }
+
+        h1::after {
+            content: "";
+
+            display: block;
+
+            width: 60px;
+            height: 4px;
+
+            margin: 10px auto 0;
+
+            background: linear-gradient(
+                90deg,
+                #667eea,
+                #764ba2
+            );
+
+            border-radius: 10px;
         }
 
         label {
             display: block;
 
-            margin-top: 15px;
+            margin-top: 20px;
             margin-bottom: 8px;
 
-            font-weight: bold;
+            font-size: 15px;
+
+            font-weight: 600;
 
             color: #444;
         }
@@ -60,53 +98,120 @@
         input {
             width: 100%;
 
-            padding: 12px;
+            padding: 14px 16px;
 
-            border: 1px solid #ccc;
+            border: 2px solid #e1e5eb;
 
-            border-radius: 6px;
+            border-radius: 10px;
 
             font-size: 16px;
+
+            outline: none;
+
+            background: #f8f9fc;
+
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #667eea;
+
+            background: white;
+
+            box-shadow:
+                0 0 0 4px rgba(102, 126, 234, 0.15);
+        }
+
+        input::placeholder {
+            color: #999;
         }
 
         button {
             width: 100%;
 
-            margin-top: 20px;
+            margin-top: 30px;
 
-            padding: 12px;
+            padding: 14px;
 
             border: none;
 
-            border-radius: 6px;
+            border-radius: 10px;
 
-            background: #007bff;
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
 
             color: white;
 
-            font-size: 16px;
+            font-size: 17px;
+
+            font-weight: 600;
 
             cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            box-shadow:
+                0 8px 20px rgba(102, 126, 234, 0.3);
         }
 
         button:hover {
-            background: #0056b3;
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
         }
 
         .result {
-            margin-top: 20px;
+            margin-top: 25px;
 
-            padding: 15px;
+            padding: 16px;
 
             text-align: center;
 
-            border-radius: 6px;
+            border-radius: 10px;
 
             font-size: 18px;
 
-            font-weight: bold;
+            font-weight: 600;
 
-            background: #eee;
+            color: white;
+
+            background: linear-gradient(
+                135deg,
+                #11998e,
+                #38ef7d
+            );
+
+            box-shadow:
+                0 8px 20px rgba(17, 153, 142, 0.25);
+        }
+
+        /* Mobile Responsive */
+
+        @media (max-width: 500px) {
+
+            .container {
+                padding: 30px 22px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            input {
+                font-size: 15px;
+            }
+
+            button {
+                font-size: 16px;
+            }
         }
 
     </style>
@@ -125,8 +230,7 @@
             <input
                 type="text"
                 name="array"
-                value="10,20,30,40,50,60,70,80"
-                placeholder="10,20,30,40"
+                placeholder="Enter Numbers like this format 10,20,30.."
                 required
             >
 
@@ -156,4 +260,5 @@
     </div>
 
 </body>
+
 </html>
