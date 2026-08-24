@@ -4,4 +4,14 @@ skills.append(subjects)
 
 
 
-print(skills)
+#print(skills)
+
+
+shiva_details ={
+    "name": "Shiva",
+     "age" : 23,
+     "class" : "CSE-05",
+     "marks" : 98
+}
+
+print(shiva_details["name"])
