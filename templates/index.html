@@ -37,7 +37,7 @@
 
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 900px;
 
             background: rgba(255, 255, 255, 0.95);
 
@@ -49,6 +49,20 @@
                 0 20px 50px rgba(0, 0, 0, 0.25);
 
             backdrop-filter: blur(10px);
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+
+            align-items: center;
+        }
+
+        /* Left Section */
+
+        .form-section {
+            width: 100%;
         }
 
         h1 {
@@ -69,6 +83,7 @@
             display: block;
 
             width: 60px;
+
             height: 4px;
 
             margin: 10px auto 0;
@@ -86,6 +101,7 @@
             display: block;
 
             margin-top: 20px;
+
             margin-bottom: 8px;
 
             font-size: 15px;
@@ -168,16 +184,39 @@
             transform: translateY(0);
         }
 
-        .result {
-            margin-top: 25px;
 
-            padding: 16px;
+        /* Right Section */
+
+        .result-section {
+            width: 100%;
+
+            min-height: 250px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 15px;
+
+            background: #f8f9fc;
+
+            border: 2px dashed #d9dce5;
+
+            padding: 25px;
+        }
+
+        .result {
+            width: 100%;
+
+            padding: 25px;
 
             text-align: center;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
-            font-size: 18px;
+            font-size: 20px;
 
             font-weight: 600;
 
@@ -193,11 +232,24 @@
                 0 8px 20px rgba(17, 153, 142, 0.25);
         }
 
+        .no-result {
+            color: #999;
+
+            font-size: 16px;
+
+            text-align: center;
+        }
+
+
         /* Mobile Responsive */
 
-        @media (max-width: 500px) {
+        @media (max-width: 700px) {
 
             .container {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+
                 padding: 30px 22px;
             }
 
@@ -212,50 +264,75 @@
             button {
                 font-size: 16px;
             }
+
+            .result-section {
+                min-height: 150px;
+            }
         }
 
     </style>
+
 </head>
+
 
 <body>
 
     <div class="container">
 
-        <h1>Linear Search</h1>
+        <!-- FORM SECTION -->
 
-        <form method="POST">
+        <div class="form-section">
 
-            <label>Enter Array</label>
+            <h1>Linear Search</h1>
 
-            <input
-                type="text"
-                name="array"
-                placeholder="Enter Numbers like this format 10,20,30.."
-                required
-            >
+            <form method="POST">
 
-            <label>Enter Target</label>
+                <label>Enter Array</label>
 
-            <input
-                type="number"
-                name="target"
-                placeholder="Enter target"
-                required
-            >
+                <input
+                    type="text"
+                    name="array"
+                    placeholder="Enter Numbers like this format 10,20,30.."
+                    required
+                >
 
-            <button type="submit">
-                Search
-            </button>
+                <label>Enter Target</label>
 
-        </form>
+                <input
+                    type="number"
+                    name="target"
+                    placeholder="Enter target"
+                    required
+                >
 
-        {% if result %}
+                <button type="submit">
+                    Search
+                </button>
 
-            <div class="result">
-                {{ result }}
-            </div>
+            </form>
 
-        {% endif %}
+        </div>
+
+
+        <!-- RESULT SECTION -->
+
+        <div class="result-section">
+
+            {% if result %}
+
+                <div class="result">
+                    {{ result }}
+                </div>
+
+            {% else %}
+
+                <div class="no-result">
+                    Search result will appear here
+                </div>
+
+            {% endif %}
+
+        </div>
 
     </div>
 

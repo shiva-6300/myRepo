@@ -23,19 +23,24 @@ def home():
         # Get array from HTML
         array_input = request.form["array"]
 
-        # Convert "10,20,30,40" into [10, 20, 30, 40]
-        array = [int(x) for x in array_input.split(",")]
+        if "," not in array_input:
+            result = "Invalid format! Please enter numbers separated by commas. Example: 10,20,30,40"
 
-        # Get target
-        target = int(request.form["target"])
-
-        # Call your Python function
-        result = linear_search(array, target)
-
-        if result == 1:
-            result = "Element Found"
         else:
-            result = "Sorry... Not Found"
+            try:
+                array = [int(x.strip()) for x in array_input.split(",")]
+
+                target = int(request.form["target"])
+
+                result = linear_search(array, target)
+
+                if result == 1:
+                    result = "Element Found In The List"
+                else:
+                    result = "Sorry... Element Not Found"
+
+            except ValueError:
+                result = "invalid input! Please enter numbers only."
 
     return render_template("index.html", result=result)
 
