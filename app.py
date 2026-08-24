@@ -33,7 +33,7 @@ def home():
         result = linear_search(array, target)
 
         if result == 1:
-            result = "YOU PIG"
+            result = "Element Found"
         else:
             result = "Sorry... Not Found"
 
