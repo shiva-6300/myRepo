@@ -35,7 +35,7 @@ def home():
                 result = linear_search(array, target)
 
                 if result == 1:
-                    result = "Element Found In The List"
+                    result = "Element Found Shiva"
                 else:
                     result = "Sorry... Element Not Found"
 
