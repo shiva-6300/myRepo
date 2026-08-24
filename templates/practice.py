@@ -1,17 +1,7 @@
-skills = ["python","Flask",1,45.34]
-subjects = ["maths","science","Hindi","English"]
-skills.append(subjects)
+from apple import check_voting_age
 
+age = int(input("Enter your age: "))
 
+result = check_voting_age(age)
 
-#print(skills)
-
-
-shiva_details ={
-    "name": "Shiva",
-     "age" : 23,
-     "class" : "CSE-05",
-     "marks" : 98
-}
-
-print(shiva_details["name"])
+print(result)
